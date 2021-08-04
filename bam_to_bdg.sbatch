@@ -44,4 +44,12 @@ for f in $Map_Folders/*.bam; do
 	eval $bowtie_cmd
 done
 
+#Join bedgraphs to make a common bedgraph
 #bedtools unionbedg -i deeptools_clf_K27ac_1.bedgraph deeptools_col_K27ac_1.bedgraph deeptools_clf_K9ac_1.bedgraph  deeptools_Col_K9ac_1.bedgraph  >  ChIPseq_Arabi_4_combine
+
+#Split individual bedgraphs so that all have the same start and end locations. For control, put "1" as the score
+# awk '{print $1"\t"$2"\t"$3"\t"$4}' ChIPseq_Arabi_4_combine > ChIP_clf_K27ac_1_s3norm_input
+# awk '{print $1"\t"$2"\t"$3"\t"$5}' ChIPseq_Arabi_4_combine > ChIP_col_K27ac_1_s3norm_input
+# awk '{print $1"\t"$2"\t"$3"\t"$6}' ChIPseq_Arabi_4_combine > ChIP_clf_K9ac_1_s3norm_input
+# awk '{print $1"\t"$2"\t"$3"\t"$7}' ChIPseq_Arabi_4_combine > ChIP_Col_K9ac_1_s3norm_input
+# awk '{print $1"\t"$2"\t"$3"\t""1"}' ChIPseq_Arabi_4_combine > control_s3norm_input
