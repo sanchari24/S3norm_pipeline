@@ -1,5 +1,5 @@
 #!/bin/bash
-# Generic macs2
+# Generic S3norm
 #
 #SBATCH -J S3_norm_part1 # le nom de votre job
 #SBATCH -p All # la partition
